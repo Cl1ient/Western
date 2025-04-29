@@ -1,0 +1,42 @@
+@startuml
+
+    class Personnage {
+        - nom : String
+        - boissonPreferee
+        + sePresenter() : String
+        + boire() : String
+        + boire(boisson : Substantif) : String
+        + dire(message : String) : String
+    }
+
+class Narrateur {
+    - histoire : List<String>
+    + ajouterLignes(ligne : String) : void
+    + raconterHistoire() : void
+}
+
+class Substantif {
+    - nom : String
+    - genre : Genre
+}
+
+abstract class Genre {
+    + getGenre() : String
+}
+
+class Masculin {
+    + getArticle() : String
+}
+
+class Feminin {
+    + getArticle() : String
+}
+
+Personnage "*" o--> "1* \n -m_attribute" Substantif : is part of
+Personnage --> Narrateur
+Narrateur --> "histoire" : List<String>
+Substantif --> Genre : Article masculin féminin
+Genre <|-- Masculin
+Genre <|-- Feminin
+
+@enduml

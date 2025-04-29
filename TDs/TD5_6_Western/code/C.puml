@@ -1,0 +1,59 @@
+@startuml
+package western {
+    class Narrateur {
+        + ajouterLignes(texte: String): void
+        + raconterHistoire(): void
+    }
+}
+
+package western.grammaire {
+
+
+    class Genre {
+    }
+
+    class Feminin extends Genre {
+    }
+
+    class Masculin extends Genre {
+    }
+}
+
+package western.personnages {
+    abstract class Personnage {
+        - nom: String
+        + Personnage(nom: String)
+        + getNom(): String
+        + sePresenter(): String
+        + boire(): String
+        + dire(texte: String): String
+    }
+
+    class Dame extends Personnage {
+        + Dame(nom: String)
+    }
+
+    class Cowboy extends Personnage {
+        - boissonPreferee: Substantif
+        + Cowboy(nom: String, boisson: Substantif)
+        + tirerSur(cible: Brigand): String
+        + capturer(cible: Brigand): String
+    }
+
+    class Brigand extends Personnage {
+        - boissonPreferee: Substantif
+        + Brigand(nom: String, boisson: Substantif)
+        + kidnapper(victime: Dame): String
+    }
+}
+
+
+
+class Histoire2 {
+    + main(args: String[]): void
+}
+
+
+
+
+@enduml

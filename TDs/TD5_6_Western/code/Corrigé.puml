@@ -1,0 +1,120 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam classFontSize Bold
+skinparam style stricuml
+hide empty members
+
+package western{
+
+    class Narrateur{
+        - m_texte : String
+        + <<create>> Narrateur()
+        + ajouterLignes(ligne:String)
+        + raconterHistoire()
+    }
+    package personnages{
+        abstract class Personnage <<abstract>>{
+            - m_nom : String
+            + <<create>> Personnage(nom:String)
+            + <<create>> Personnage(nom:String, substantif:Substantif)
+            + sePresenter() : String
+            + boire() : String
+            + boire(substantif:Substantif) : String
+            + dire(texte : String) : String
+            + {abstract}getPseudo() : String
+        }
+
+        class Dame extends Personnage{
+            + <<create>> Dame(nom:String)
+            + <<create>> Dame(nom:String, substantif:Substantif)
+            + sePresenter(cowboy:Cowboy) : String
+            + sePresenter(brigand:Brigand) : String
+            + estEnlevee(brigand:Brigand) : String
+            + estLiberee(cowboy:Cowboy) : String
+            + getPseudo() : String
+        }
+
+        class Cowboy extends Personnage{
+            - recompense : Integer
+            - brigandsCaptures : String[*]
+            + <<create>> Cowboy(nom:String)
+            + <<create>> Cowboy(nom:String, substantif:Substantif)
+            + sePresenter() : String
+            + tirerSur(brigand:Brigand) : String
+            + capturer(brigand:Brigand) : String
+            + liberer(dame:Dame) : String
+            + getPseudo() : String
+        }
+
+        class Brigand extends Personnage{
+            - prime : Integer = 100
+            - {static} PRIME_ENLEVEMENT : Integer = 50
+            - damesCapturees : String[*]
+            + <<create>> Brigand(nom:String)
+            + <<create>> Brigand(nom:String, substantif:Substantif)
+            + sePresenter() : String
+            + sePresenter(cowboy:Cowboy) : String
+            + sePresenter(dame:Dame) : String
+            + kidnapper(dame:Dame) : String
+            + seFaireTirerDessus(cowboy:Cowboy) : String
+            + estCapture(cowboy:Cowboy) : String
+            + getPrime() : Integer
+            + getPseudo() : String
+        }
+
+
+    }
+    package grammaire{
+        class Substantif{
+            + <<create>> Substantif(boisson:String, masculin:Masculin)
+            + <<create>> Substantif(boisson:String, feminin:Feminin)
+            + avecArticleDefini() : String
+            + avecArticleIndefini() : String
+            + avecArticlePartitif() : String
+            + avecPrepositionDe() : String
+        }
+
+        interface Genre <<interface>>{
+            + {abstract} getArticleDefini() : String
+            + {abstract} getArticleIndefini() : String
+            + {abstract} avecArticlePartitif() : String
+            + {abstract} getPrepositionDe() : String
+        }
+
+        class Feminin implements Genre{
+            + <<create>> Feminin()
+            + getArticleDefini() : String
+            + getArticleIndefini() : String
+            + avecArticlePartitif() : String
+            + getPrepositionDe() : String
+        }
+
+        class Masculin implements Genre{
+            + <<create>> Feminin()
+            + getArticleDefini() : String
+            + getArticleIndefini() : String
+            + avecArticlePartitif() : String
+            + getPrepositionDe() : String
+        }
+    }
+
+
+ }
+    class Histoire1{
+        +{static} main(args: String[*])
+    }
+
+
+
+    Personnage *--> "1\n-boissonFavorite" Substantif : > préfère
+    Personnage o--> "\n -genre" Genre : > a pour genre
+    Histoire1 ..> Personnage : <<use>>
+    Histoire1 ..> Substantif : <<use>>
+    Histoire1 .> Narrateur : <<use>>
+    Histoire1 ..> Masculin : <<use>>
+    Histoire1 ..> Feminin : <<use>>
+
+    Brigand o--> "*\n - damesCapturees" Dame : > peut capturer
+
+@enduml
