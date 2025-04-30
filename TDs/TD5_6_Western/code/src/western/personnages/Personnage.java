@@ -20,7 +20,6 @@ public class Personnage {
         this.substantif = new Substantif("eau", new Feminin());
     }
 
-
     public String sePresenter(){
          return dire("Bonjour, je suis " +getPseudo(this)+ " et j'aime " +substantif.avecArticleDefini()+".") ;
     }
@@ -31,7 +30,6 @@ public class Personnage {
     public String getNom(Substantif substantif){
         return substantif._nom;
     }
-
 
     public String boire(Substantif substantif){
         if(substantif.equals(this.substantif)){

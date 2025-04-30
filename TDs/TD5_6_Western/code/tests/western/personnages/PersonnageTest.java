@@ -1,10 +1,16 @@
 package western.personnages;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import western.grammaire.Substantif;
+import western.grammaire.Masculin;
+import western.personnages.Personnage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PersonnageTest
 {
-    /*
+
     @Test
     void test_constructeurDefaut()
     {
@@ -36,6 +42,6 @@ public class PersonnageTest
         Personnage kid = new Personnage("The Kid", new Substantif("thé à la menthe", new Masculin()));
         assertEquals("The Kid - GLOUPS ! Faut vraiment avoir soif pour boire du whisky ! j'aurais préféré boire du thé à la menthe.", kid.boire(new Substantif("whisky", new Masculin())));
     }
-    */
+
 
 }
