@@ -1,28 +1,37 @@
 package western.grammaire;
 
+import java.util.List;
+
 public class Substantif {
-    public String nom;
-    public Genre genre;
+    public String _nom;
+    public Genre _genre;
+    private boolean _ellision;
+
+
     public Substantif(String nom, Genre genre){
-        this.nom = nom;
-        this.genre = genre;
+        this._nom = nom;
+        this._genre = genre;
+        this._ellision = List.of('a','e','i','o','u','y').contains(nom.charAt(0));
     }
 
     public String avecArticleDefini(){
-        return genre.getArticleDefini() + " " + nom;
+        return (_ellision ? "l'" : _genre.getArticleDefini() + " " + _nom);
     }
 
     public String avecArticleIndefini(){
-        return genre.getArticleIndefini() + " " + nom;
+        return _genre.getArticleIndefini() + " " + _nom;
     }
 
     public String avecArticlePartitif(){
-        return genre.getArticlePartitif() + " " + nom;
+        return (_ellision ? "l'" : _genre.getArticlePartitif() + " " + _nom);
     }
 
     public String avecArticleDe(){
-        return genre.getArticleDe() + " " + nom;
+        return (_ellision ? "l'" : _genre.getArticleDe() + " " + _nom);
     }
+
+
+
 
 
 }

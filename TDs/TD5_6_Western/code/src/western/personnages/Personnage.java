@@ -17,20 +17,23 @@ public class Personnage {
     public Personnage(String personne){
 
         this.personne = personne;
-        this.substantif = new Substantif("l'eau", new Genre("Feminin"));
+        this.substantif = new Substantif("eau", new Feminin());
     }
 
-    public String sePresenter(Personnage personnage){
 
-        return getPseudo(this) + "- Bonjour, je suis" +getPseudo(this)+ " et j'aime l'eau." ;
+    public String sePresenter(){
+         return dire("Bonjour, je suis " +getPseudo(this)+ " et j'aime " +this.substantif.avecArticleDefini()+".") ;
+    }
+    public String sePresenter(Substantif substantif){
+        return dire("Bonjour, je suis " +getPseudo(this)+ " et j'aime " +substantif.avecArticleDefini()+".") ;
     }
 
     public String getNom(Substantif substantif){
-        return substantif.nom;
+        return substantif._nom;
     }
 
     public String boire(Substantif substantif){
-        return "Je bois un " + substantif.nom + ".";
+        return dire("Ah ! boire " + substantif.avecArticlePartitif() + " ! GLOUPS !");
     }
 
     public String boire(){
@@ -38,7 +41,7 @@ public class Personnage {
     }
 
     public String dire(String texte){
-       return String.format(texte);
+        return personne + " - (" + texte + ")";
     }
 
     public String getPseudo(Personnage personnage){
