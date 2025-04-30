@@ -15,7 +15,7 @@ public class Substantif {
     }
 
     public String avecArticleDefini(){
-        return (_ellision ? "l'" : _genre.getArticleDefini() + " " + _nom);
+        return (_ellision ? "l'" : _genre.getArticleDefini() + " ") + _nom;
     }
 
     public String avecArticleIndefini(){
@@ -23,11 +23,11 @@ public class Substantif {
     }
 
     public String avecArticlePartitif(){
-        return (_ellision ? "l'" : _genre.getArticlePartitif() + " " + _nom);
+        return (_ellision ? "de l'" : _genre.getArticlePartitif() + " ") + _nom;
     }
 
     public String avecArticleDe(){
-        return (_ellision ? "l'" : _genre.getArticleDe() + " " + _nom);
+        return (_ellision ? "l'" : _genre.getArticleDe() + " ") + _nom;
     }
 
 

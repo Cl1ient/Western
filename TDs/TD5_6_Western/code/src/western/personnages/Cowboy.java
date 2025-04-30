@@ -13,22 +13,22 @@ public class Cowboy {
     }
 
     public String sePresenter(){
-
+         return "a";
     }
 
     public String tirerSur(Brigand brigand){
-
+         return "a";
     }
 
     public String capturer(Brigand brigand){
-
+         return "a";
     }
 
     public String liberer(Dame dame){
-
+         return "a";
     }
 
     public String getPseudo(){
-
+         return "a";
     }
 }

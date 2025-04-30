@@ -5,4 +5,5 @@ public interface Genre {
     String getArticleIndefini();
     String getArticlePartitif();
     String getArticleDe();
+
 }

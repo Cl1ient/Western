@@ -12,33 +12,30 @@ public class Brigand {
     }
 
     public String sePresenter(){
-
+         return "a";
     }
-
     public String sePresenter(Dame dame){
-
+         return "a";
     }
 
     public String kidnapper(Dame dame){
-
+         return "a";
     }
 
     public String seFaireTirerDessus(){
-
+         return "a";
     }
 
     public String estCapture(){
-
+         return "a";
     }
 
     public Integer getPrime(){
-
+        return 1;
     }
 
-    public String getPseudo(){
-
+    public String getPseudo() {
+        return "a";
     }
-
-
 
 }

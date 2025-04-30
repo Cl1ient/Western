@@ -1,10 +1,7 @@
-package western;
+package western.grammaire;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-import western.grammaire.Feminin;
-import western.grammaire.Masculin;
-import western.grammaire.Substantif;
 
 
 public class SubstantifTest

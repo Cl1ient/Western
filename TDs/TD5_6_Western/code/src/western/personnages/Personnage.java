@@ -22,7 +22,7 @@ public class Personnage {
 
 
     public String sePresenter(){
-         return dire("Bonjour, je suis " +getPseudo(this)+ " et j'aime " +this.substantif.avecArticleDefini()+".") ;
+         return dire("Bonjour, je suis " +getPseudo(this)+ " et j'aime " +substantif.avecArticleDefini()+".") ;
     }
     public String sePresenter(Substantif substantif){
         return dire("Bonjour, je suis " +getPseudo(this)+ " et j'aime " +substantif.avecArticleDefini()+".") ;
@@ -32,16 +32,18 @@ public class Personnage {
         return substantif._nom;
     }
 
+
     public String boire(Substantif substantif){
+
         return dire("Ah ! boire " + substantif.avecArticlePartitif() + " ! GLOUPS !");
     }
 
     public String boire(){
-        return "je bois rien .";
+        return dire("Ah ! boire " +substantif.avecArticlePartitif() + " ! GLOUPS !");
     }
 
     public String dire(String texte){
-        return personne + " - (" + texte + ")";
+        return personne + " - " + texte + "";
     }
 
     public String getPseudo(Personnage personnage){
