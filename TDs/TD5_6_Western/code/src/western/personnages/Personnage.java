@@ -34,8 +34,10 @@ public class Personnage {
 
 
     public String boire(Substantif substantif){
-
-        return dire("Ah ! boire " + substantif.avecArticlePartitif() + " ! GLOUPS !");
+        if(substantif.equals(this.substantif)){
+            boire();
+        }
+        return "a";
     }
 
     public String boire(){

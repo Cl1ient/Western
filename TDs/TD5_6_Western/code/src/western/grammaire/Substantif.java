@@ -1,6 +1,7 @@
 package western.grammaire;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Substantif {
     public String _nom;
@@ -28,6 +29,12 @@ public class Substantif {
 
     public String avecArticleDe(){
         return (_ellision ? "l'" : _genre.getArticleDe() + " ") + _nom;
+
+    }
+
+    @Override
+    public boolean equals(Object other){
+        return(other instanceof  Substantif) && _nom.equals(((Substantif)other)._nom);
     }
 
 
