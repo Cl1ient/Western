@@ -17,7 +17,7 @@ public class Personnage {
     public Personnage(String personne){
 
         this.personne = personne;
-        this.substantif = new Substantif("eau", new Feminin()); // test commit
+        this.substantif = new Substantif("eau", new Feminin()); // test commit class
     }
 
     public String sePresenter(){
